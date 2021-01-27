@@ -16,7 +16,7 @@ export default function Saved() {
 
   useEffect(() => {
     loadBooks()
-  }, [loadBooks]);
+  }, []);
 
   function loadBooks() {
     setSavedBooks({
