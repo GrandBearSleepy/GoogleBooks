@@ -51,7 +51,7 @@ export default function Saved() {
   return (
     <Container fluid>
       {isLoading ?
-        <h2>Loading</h2> :
+        <h2>Loading...</h2> :
         books ?
           (
             <List>
