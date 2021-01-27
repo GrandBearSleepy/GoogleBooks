@@ -18,6 +18,7 @@ export default function Saved() {
     loadBooks()
   }, []);
 
+  //load saved books when mount component
   function loadBooks() {
     setSavedBooks({
       isLoading: true
@@ -37,15 +38,21 @@ export default function Saved() {
       });
   }
 
+  // delete function
   function deleteBook(id) {
-    API.deleteBook(id)
-      .then(
-        res => {
-          loadBooks();
-          alert(`"${res.data.title}" has been deleted!!`)
-        }
-      )
-      .catch(err => console.log(err))
+    if (!window.confirm('Are you sure delete this book?')) {
+      return
+    } else {
+      API.deleteBook(id)
+        .then(
+          res => {
+            loadBooks();
+            alert(`"${res.data.title}" has been deleted!!`)
+          }
+        )
+        .catch(err => console.log(err))
+    }
+
   }
 
   return (

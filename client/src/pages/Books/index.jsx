@@ -16,15 +16,20 @@ export default function Books() {
 
   const [search, setSearch] = useState('');
 
+  //destructure searchedBooks
   const { books, isLoading } = searchedBooks
 
+
+  //handle input change function, update input state
   function handleInputChange(event) {
     const value = event.target.value
     setSearch(value);
 
   }
 
+  //save book function
   async function saveBook(id) {
+    //find the book want to be saved from searchedBooks state
     const book = books.find(book => book.id === id)
     console.log(book)
     await API.getBook(book.id)
