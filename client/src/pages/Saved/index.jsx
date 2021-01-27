@@ -40,6 +40,7 @@ export default function Saved() {
 
   // delete function
   function deleteBook(id) {
+    //confirm deleting
     if (!window.confirm('Are you sure delete this book?')) {
       return
     } else {
